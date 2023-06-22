@@ -38,12 +38,6 @@ jobs:
       - name: Build
         run: >-
           python3 -m build
-      - name: Publish release to PyPI
-        uses: pypa/gh-action-pypi-publish@v1.8.6
-        with:
-          user: __token__
-          password: ${{ secrets.PYPI_TOKEN }}
-          repository-url: https://test.pypi.org/legacy/
   build-and-push-container-image:
     name: Builds and pushes the Matter Server container to ghcr.io
     runs-on: ubuntu-latest
