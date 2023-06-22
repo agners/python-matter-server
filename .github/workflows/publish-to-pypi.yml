@@ -8,6 +8,8 @@ jobs:
   build-and-publish:
     name: Builds and publishes releases to PyPI
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
     steps:
       - uses: actions/checkout@v3.5.3
       - name: Get tag
@@ -38,6 +40,3 @@ jobs:
           python3 -m build
       - name: Publish release to PyPI
         uses: pypa/gh-action-pypi-publish@v1.8.6
-        with:
-          user: __token__
-          password: ${{ secrets.PYPI_TOKEN }}
