@@ -120,7 +120,7 @@ class MatterClient:
         data = await self.send_command(APICommand.COMMISSION_WITH_CODE, code=code)
         return dataclass_from_dict(MatterNodeData, data)
 
-    async def commission_on_network(self, setup_pin_code: int, ipaddr: str | None = None) -> MatterNodeData:
+    async def commission_on_network(self, setup_pin_code: int, ip_addr: str | None = None) -> MatterNodeData:
         """
         Do the routine for OnNetworkCommissioning.
 
@@ -131,7 +131,7 @@ class MatterClient:
         """
         data = await self.send_command(
             APICommand.COMMISSION_ON_NETWORK, setup_pin_code=setup_pin_code,
-            ipaddr=ipaddr,
+            ip_addr=ip_addr,
         )
         return dataclass_from_dict(MatterNodeData, data)
 

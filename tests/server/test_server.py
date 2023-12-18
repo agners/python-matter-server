@@ -197,14 +197,14 @@ async def test_server_start(
         parse_arguments(
             server.command_handlers[APICommand.COMMISSION_ON_NETWORK].signature,
             server.command_handlers[APICommand.COMMISSION_ON_NETWORK].type_hints,
-            {"setup_pin_code": 1234, "ipaddr": "fd82:c9e9:5cb7:1:2c5c:ed99:ecf:4460"},
+            {"setup_pin_code": 1234, "ip_addr": "fd82:c9e9:5cb7:1:2c5c:ed99:ecf:4460"},
             strict=True,
         )
     ) == {
         "setup_pin_code": 1234,
         "filter_type": 0,
         "filter": None,
-        "ipaddr": "fd82:c9e9:5cb7:1:2c5c:ed99:ecf:4460",
+        "ip_addr": "fd82:c9e9:5cb7:1:2c5c:ed99:ecf:4460",
     }
     assert (
         parse_arguments(

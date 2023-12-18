@@ -203,7 +203,7 @@ class MatterDeviceController:
         setup_pin_code: int,
         filter_type: int = 0,
         filter: Any = None,  # pylint: disable=redefined-builtin
-        ipaddr: str | None = None,
+        ip_addr: str | None = None,
     ) -> MatterNodeData:
         """
         Do the routine for OnNetworkCommissioning, with a filter for mDNS discovery.
@@ -227,7 +227,7 @@ class MatterDeviceController:
 
         node_id = self._get_next_node_id()
 
-        if ipaddr is None:
+        if ip_addr is None:
             LOGGER.info(
                 "Starting Matter commissioning on network using Node ID %s.", node_id
             )
@@ -250,7 +250,7 @@ class MatterDeviceController:
                 self.chip_controller.CommissionIP,
                 nodeid=node_id,
                 setupPinCode=setup_pin_code,
-                ipaddr=ipaddr,
+                ipaddr=ip_addr,
             )
             if not success:
                 raise NodeCommissionFailed(
