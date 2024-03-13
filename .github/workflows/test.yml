@@ -37,7 +37,9 @@ jobs:
           pwd
           ls -la
           export
-          SKIP=no-commit-to-branch post-merge run --all-files -v
+          SKIP=no-commit-to-branch pre-commit run --all-files -v --hook-stage post-merge
+      - name: Lint/test with pre-commit 2
+        uses: pre-commit/action@v3.0.1
 
   test:
     runs-on: ubuntu-latest
