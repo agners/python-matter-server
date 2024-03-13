@@ -34,8 +34,9 @@ jobs:
           which mypy
           which pre-commit
           pre-commit --version
-          SKIP=no-commit-to-branch pre-commit run --all-files -v
-          SKIP=no-commit-to-branch autoupdate
+          pwd
+          ls -la
+          export
           SKIP=no-commit-to-branch pre-commit run --all-files -v
 
   test:
