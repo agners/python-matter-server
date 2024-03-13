@@ -38,6 +38,7 @@ jobs:
           ls -la
           export
           SKIP=no-commit-to-branch pre-commit run --all-files -v --hook-stage post-merge
+          mypy matter_server/server/device_controller.py
       - name: Lint/test with pre-commit 2
         uses: pre-commit/action@v3.0.1
 
