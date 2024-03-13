@@ -38,7 +38,9 @@ jobs:
           ls -la
           export
           SKIP=no-commit-to-branch pre-commit run --all-files -v --hook-stage post-merge
+          echo "Running mypy manually again!"
           mypy matter_server/server/device_controller.py
+          mypy -v matter_server/server/device_controller.py
       - name: Lint/test with pre-commit 2
         uses: pre-commit/action@v3.0.1
 
