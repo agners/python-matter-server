@@ -37,7 +37,7 @@ jobs:
           pwd
           ls -la
           export
-          SKIP=no-commit-to-branch pre-commit run --all-files -v
+          SKIP=no-commit-to-branch post-merge run --all-files -v
 
   test:
     runs-on: ubuntu-latest
