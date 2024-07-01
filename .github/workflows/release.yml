@@ -55,6 +55,9 @@ jobs:
 
           with open("pyproject.toml", "wb") as f:
             tomli_w.dump(pyproject, f)
+      - name: Install python package deps
+        run: >-
+          pip3 -e .
       - name: Build dashboard
         run: |
           dashboard/script/setup
