@@ -29,7 +29,20 @@ jobs:
           pip install -e .[server]
           pip install -e .[test]
       - name: Lint/test with pre-commit
-        run: SKIP=no-commit-to-branch pre-commit run --all-files
+        run: |
+          mypy --version
+          which mypy
+          which pre-commit
+          pre-commit --version
+          pwd
+          ls -la
+          export
+          SKIP=no-commit-to-branch pre-commit run --all-files -v --hook-stage post-merge
+          echo "Running mypy manually again!"
+          mypy -v matter_server/server/device_controller.py
+          mypy -v --no-incremental matter_server/server/device_controller.py
+      - name: Lint/test with pre-commit 2
+        uses: pre-commit/action@v3.0.1
 
   test:
     runs-on: ubuntu-latest
